@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-bg-primary: var(--color-bg-primary);
+  --color-bg-secondary: var(--color-bg-secondary);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-accent-primary: var(--color-accent-primary);
+  --color-accent-success: var(--color-accent-success);
+  --color-accent-error: var(--color-accent-error);
+  --color-border-primary: var(--color-border-primary);
+}
+
+:root {
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f8fafc;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-accent-primary: #10b981; 
+  --color-accent-success: #10b981;
+  --color-accent-error: #f43f5e;
+  --color-border-primary: #e2e8f0;
+}
+
+.dark {
+  --color-bg-primary: #09090b;
+  --color-bg-secondary: #141416;
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-accent-primary: #10b981; 
+  --color-accent-success: #10b981;
+  --color-accent-error: #f43f5e;
+  --color-border-primary: #27272a;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(161, 161, 170, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(161, 161, 170, 0.05) 1px, transparent 1px);
+}
+
+.dark .grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(63, 63, 70, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(63, 63, 70, 0.15) 1px, transparent 1px);
+}
+
+
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark .glass {
+  background: rgba(20, 20, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.animate-dash {
+  stroke-dasharray: 8, 4;
+  animation: dash 4s linear infinite;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+.container-query-wrapper {
+  container-type: inline-size;
+}
